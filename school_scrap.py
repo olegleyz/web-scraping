@@ -24,7 +24,7 @@ with open ("schools.csv", "w") as f:
 		for i in range(len(school_val)):
 			school[school_keys[i]] = school_val[i].get_text()
 		school["url"] = base_url+school_val[3].a["href"]
-		page_supl = urllib2.urlopen(base_url+school["url"])
+		page_supl = urllib2.urlopen(school["url"])
 		soup_supl = BeautifulSoup(page_supl, "lxml")
 		school_supl = soup_supl.find("span", {"id":"ctl00_ContentPlaceHolder1_SchoolInfoDisplay"})
 		school_supl_val = [elem for elem in school_supl.childGenerator()]
