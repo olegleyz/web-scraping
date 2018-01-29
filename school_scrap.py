@@ -23,14 +23,13 @@ with open ("schools.csv", "w") as f:
 		school = {}
 		for i in range(len(school_val)):
 			school[school_keys[i]] = school_val[i].get_text()
-		school["url"] = school_val[3].a["href"]
+		school["url"] = base_url+school_val[3].a["href"]
 		page_supl = urllib2.urlopen(base_url+school["url"])
 		soup_supl = BeautifulSoup(page_supl, "lxml")
 		school_supl = soup_supl.find("span", {"id":"ctl00_ContentPlaceHolder1_SchoolInfoDisplay"})
 		school_supl_val = [elem for elem in school_supl.childGenerator()]
 		school["type"] = school_supl_val[2]
-		school["address"] = school_supl_val[4]
-		school["address2"] = school_supl_val[6]
+		school["address"] = school_supl_val[4]+" "+school_supl_val[6]
 		school["phone"] = school_supl_val[8]
 		school["district"] = school_supl_val[11]
 		del school["trend"]
@@ -38,8 +37,8 @@ with open ("schools.csv", "w") as f:
 		if l==0:
 			w = csv.DictWriter(f, school.keys())
 			w.writeheader()
+		l += 1
 		w.writerow(school)
-		import pdb;pdb.set_trace()
 
 
 
