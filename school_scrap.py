@@ -98,37 +98,6 @@ def main():
 
 if __name__ == '__main__':
 	main()
-# with open ("schools.csv", "w") as f:
-# 	for school_html in tqdm(schools_html):
-# 		school_val = school_html.find_all("td", {"class":"tdcell"})
-# 		school = {}
-# 		for i in range(len(school_val)):
-# 			school[school_keys[i]] = school_val[i].get_text()
-# 		school["url"] = base_url+school_val[3].a["href"]
-# 		# try: 
-# 		# 	page_supl = urllib2.urlopen(school["url"])
-# 		# 	soup_supl = BeautifulSoup(page_supl, "lxml")
-# 		# 	school_supl = soup_supl.find("span", {"id":"ctl00_ContentPlaceHolder1_SchoolInfoDisplay"})
-# 		# 	school_supl_val = [elem for elem in school_supl.childGenerator()]
-# 		# 	school["type"] = school_supl_val[2]
-# 		# 	school["address"] = school_supl_val[4]+" "+school_supl_val[6]
-# 		# 	school["phone"] = school_supl_val[8]
-# 		# 	school["district"] = school_supl_val[11]
-# 		# except:
-# 		# 	errors.append(school["name"])
-		
-# 		del school["trend"]
-# 		schools.append(school)
-# 		if l==0:
-# 			w = csv.DictWriter(f, school.keys())
-# 			w.writeheader()
-# 		l += 1
-# 		try:
-# 			w.writerow(school)
-# 		except:
-# 			errors.append(school)
-# for e in errors:
-# 	print (e)
 
 
 
